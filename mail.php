@@ -11,9 +11,9 @@ while ($say = mysqli_fetch_array($bak)) {
 	$mail->IsSMTP();
 	$mail->SMTPDebug = 1; 
 	$mail->SMTPAuth = true; 
-	$mail->SMTPSecure = 'tls'; //chose your SMTPSecure (ssl or tls)
+	$mail->SMTPSecure = 'ssl'; //chose your SMTPSecure (ssl or tls)
 	$mail->Host = "mail.site.com"; //update your Host like mail.site.com
-	$mail->Port = 587; //587 for tls, 465 for ssl(you can find your settings in your web mail
+	$mail->Port = 465; //587 for tls, 465 for ssl(you can find your settings in your web mail
 	$mail->IsHTML(true);
 	$mail->SetLanguage("tr", "library/phpmailer/language"); //choose language
 	$mail->CharSet  ="utf-8";
