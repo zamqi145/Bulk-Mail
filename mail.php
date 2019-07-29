@@ -5,8 +5,8 @@ require("library/class.phpmailer.php");
 $sayi = 1;
 $bak = $conn->query("SELECT * FROM users WHERE onay!='0' "); // Update
 while ($say = mysqli_fetch_array($bak)) {
-	$ad = $say['username'];
-	$alici = $say['eposta'];
+	$ad = $say['username']; //update
+	$alici = $say['eposta']; //update
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
 	$mail->SMTPDebug = 1; 
@@ -19,7 +19,7 @@ while ($say = mysqli_fetch_array($bak)) {
 	$mail->CharSet  ="utf-8";
 	$mail->Username = "info@site.com"; //username (web mail adress)
 	$mail->Password = "password"; //password (web mail password)
-	$mail->SetFrom("info@site.com", "Title"); //forwarder mail and Title.
+	$mail->SetFrom("info@site.com", "Title"); //forwarder mail and person
 	$mail->AddAddress($alici);
 	$mail->Subject = "Mail Title"; //Mail Title
 	$mail->Body = " Your mail"; //Your Mail, you can use like this: $ad."Your mail";
