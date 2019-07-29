@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <?php 
 include("connect.php");
-require("class.phpmailer.php");
+require("library/class.phpmailer.php");
 $sayi = 1;
 $bak = $conn->query("SELECT * FROM users WHERE onay!='0' "); // Update
 while ($say = mysqli_fetch_array($bak)) {
