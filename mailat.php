@@ -3,33 +3,31 @@
 include("connect.php");
 require("class.phpmailer.php");
 $sayi = 1;
-$bak = $conn->query("SELECT * FROM users WHERE hesapturu!='0' && onay!='0' ");
+$bak = $conn->query("SELECT * FROM users WHERE onay!='0' "); // Update
 while ($say = mysqli_fetch_array($bak)) {
-    $ad = $say['username'];
-    $alici = $say['eposta'];
+	$ad = $say['username'];
+	$alici = $say['eposta'];
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
 	$mail->SMTPDebug = 1; 
 	$mail->SMTPAuth = true; 
-	$mail->SMTPSecure = 'tls'; 
-	$mail->Host = "mail.reklaminiz.com"; 
-	$mail->Port = 587; 
+	$mail->SMTPSecure = 'tls'; //chose your SMTPSecure (ssl or tls)
+	$mail->Host = "mail.site.com"; //update your Host like mail.site.com
+	$mail->Port = 587; //587 for tls, 465 for ssl(you can find your settings in your web mail
 	$mail->IsHTML(true);
-	$mail->SetLanguage("tr", "phpmailer/language");
+	$mail->SetLanguage("tr", "phpmailer/language"); //choose language
 	$mail->CharSet  ="utf-8";
-	$mail->Username = "info@reklaminiz.com"; 
-	$mail->Password = "15995135775314785236";
-	$mail->SetFrom("info@reklaminiz.com", "Reklamınız Reklam Sistemi - Destek Ekibi"); 
+	$mail->Username = "info@site.com"; //username (web mail adress)
+	$mail->Password = "password"; //password (web mail password)
+	$mail->SetFrom("info@site.com", "Reklamınız Reklam Sistemi - Destek Ekibi"); //forwarder mail and Title.
 	$mail->AddAddress($alici);
-	$mail->Subject = "Bayramınız Kutlu Olsun"; 
-	$mail->Body = $ad." Bey, huzur, sağlık ve mutluluk dolu bayramlar yaşamak dileği ile Ramazan Bayramını en içten dileklerimizle kutluyoruz.<br>Reklamınız - Reklam Sistemi Destek Ekibi"; 
+	$mail->Subject = "Mail Title"; //Mail Title
+	$mail->Body = " Your mail"; //Your Mail, you can use like this: $ad."Your mail";
 	if(!$mail->Send()){
-		echo $sayi." - Email Gönderim Hatasi: ".$mail->ErrorInfo."<br>";
+		echo $sayi." - E-mail Error: ".$mail->ErrorInfo."<br>";
 	} else {
-		echo $sayi." - Email Gonderildi <br>";
+		echo $sayi." - Succesful  <br>";
 	}
 	$sayi++;
-
 }
-
 ?>
