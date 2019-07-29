@@ -1,4 +1,4 @@
-<?php $servername = "localhost"; $username = "user"; $password = "pass"; $dbname = "dbname";
+<?php $servername = "localhost"; $username = "user"; $password = "pass"; $dbname = "dbname"; //update
 @session_start(); 
 error_reporting(E_ALL ^ E_NOTICE);
 $conn = new mysqli($servername, $username, $password, $dbname);
