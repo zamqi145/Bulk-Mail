@@ -19,7 +19,7 @@ while ($say = mysqli_fetch_array($bak)) {
 	$mail->CharSet  ="utf-8";
 	$mail->Username = "info@site.com"; //username (web mail adress)
 	$mail->Password = "password"; //password (web mail password)
-	$mail->SetFrom("info@site.com", "Reklamınız Reklam Sistemi - Destek Ekibi"); //forwarder mail and Title.
+	$mail->SetFrom("info@site.com", "Title"); //forwarder mail and Title.
 	$mail->AddAddress($alici);
 	$mail->Subject = "Mail Title"; //Mail Title
 	$mail->Body = " Your mail"; //Your Mail, you can use like this: $ad."Your mail";
