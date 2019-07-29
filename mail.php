@@ -15,7 +15,7 @@ while ($say = mysqli_fetch_array($bak)) {
 	$mail->Host = "mail.site.com"; //update your Host like mail.site.com
 	$mail->Port = 587; //587 for tls, 465 for ssl(you can find your settings in your web mail
 	$mail->IsHTML(true);
-	$mail->SetLanguage("tr", "phpmailer/language"); //choose language
+	$mail->SetLanguage("tr", "library/phpmailer/language"); //choose language
 	$mail->CharSet  ="utf-8";
 	$mail->Username = "info@site.com"; //username (web mail adress)
 	$mail->Password = "password"; //password (web mail password)
